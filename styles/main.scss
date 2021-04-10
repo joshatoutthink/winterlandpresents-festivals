@@ -1,1 +1,35 @@
 //main.scss
+
+// DEFAULT DESIGN TOKENS
+:root {
+  --heading: "bambi", serif;
+  --text: "bodoni", serif;
+
+  --white: white;
+  --pink: #fbd1de;
+  --background: #171818;
+  --marquee: #86d6b9;
+}
+/* 
+Layout 
+*/
+@import "./components/festival-layout.scss";
+/* 
+Header
+*/
+@import "./component/festival-header.scss";
+
+/* 
+Marquee
+*/
+@import "./component/marquee.scss";
+
+/*
+Carousel
+*/
+@import "./component/carousel.scss";
+
+/*
+Festival Info
+*/
+@import "./component/info-bar.scss";
