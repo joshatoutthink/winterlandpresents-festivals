@@ -1,0 +1,14 @@
+{
+  "name": "winterland-presents-festival-pages",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel main.js",
+    "build": "parcel build main.js"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.32.8"
+  }
+}
