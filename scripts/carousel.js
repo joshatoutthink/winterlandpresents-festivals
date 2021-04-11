@@ -29,6 +29,7 @@ function changeSlide(carousel, dir) {
   const cardChangeFn = dir === -1 ? getPrevSlide : getNextSlide;
   console.log(nextSlide);
   cardChangeFn({ slides, activeSlide, nextSlide, prevSlide });
+  updateCurrentCount(carousel);
 }
 
 function getPrevSlide({ slides, activeSlide, nextSlide, prevSlide }) {
@@ -55,4 +56,11 @@ function setNewPreviousSlide(slides, prevSlide) {
   const newPrevSlideId = slideId - 1 >= 0 ? slideId - 1 : slides.length - 1;
   const newPreviousSlide = slides[newPrevSlideId];
   newPreviousSlide.dataset.state = "previous";
+}
+
+function updateCurrentCount(carousel) {
+  const activeSlide = carousel.querySelector('[data-state="active"]');
+  const newCount = parseInt(activeSlide.dataset.slideId) + 1;
+  const countEl = carousel.querySelector(".carousel__count .current");
+  countEl.textContent = newCount;
 }

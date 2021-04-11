@@ -57,10 +57,12 @@
     <?php
       $carousel_images = get_field('carousel_images'); 
       $slide_count=0;
+      $image_count = $image_count = is_array($carousel_images) ? count($carousel_images) : 0;
+      
       foreach($carousel_images as $slide){
         $slide_state = "idle";
 
-        if($slide_count == (count($carousel_images) - 1)){
+        if($slide_count == ($image_count - 1)){
           $slide_state = "previous";
         } elseif($slide_count == 1){
           $slide_state = "next";
@@ -76,7 +78,9 @@
       }
     ?>  
     </ul>
-
+     <div class="carousel__count">
+       <span class="current">1</span> / <span class="total"><?php echo $image_count;?></span>
+     </div> 
     <?php if($festival_notes = get_field('festival_notes')): ?>
         <div class="festival__notes">
           <?php echo $festival_notes; ?>

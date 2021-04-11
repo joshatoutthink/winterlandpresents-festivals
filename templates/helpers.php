@@ -47,6 +47,8 @@ function get_festival_logo(){
   if(!function_exists('get_field')) return;
   $image = get_field('festival_logo', 'option');
   ?>
-  <img src="<?php echo $image; ?>" alt="Winterland Presents logo">
+  <a href="/festivals">
+    <img src="<?php echo $image; ?>" alt="Winterland Presents logo">
+  </a>
   <?php
 }
