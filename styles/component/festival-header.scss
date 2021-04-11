@@ -10,6 +10,22 @@
     width: 100%;
     display: flex;
   }
+  &--archive {
+    font-size: 90px;
+    display: block;
+    text-align: center;
+    .festival__logo {
+      margin: 0 auto;
+      max-width: 250px;
+      img {
+        width: 100%;
+      }
+    }
+    nav {
+      justify-content: center;
+    }
+    margin-bottom: 50px;
+  }
 }
 .festival__logo {
   max-width: 130px;

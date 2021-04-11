@@ -1,33 +1,16 @@
 <?php 
   global $post;
+  require_once FESTIVAL_PAGES_CORE_PATH . 'templates/helpers.php';
 ?>
 
 <?php wp_head(); ?>
 <div class="festival__layout">
   <header class="festival__header">
     <div class="festival__logo">
-      <img src="<?php echo get_field('festival_logo'); ?>" alt="festival logo">
+      <?php get_festival_logo(); ?> 
     </div>
-
-    <nav>
-    <?php
-    $festivals = get_posts([
-      'post_type' => 'festival',
-      'posts_per_page' => 10,
-      'order' => 'ASC'
-    ]);
-    foreach($festivals as $festival){
-      $id = $festival->ID;
-      $festival_link = get_permalink($id);
-      $festival_title = $festival->post_title;
-      ?>
-      <div class="link <?php if($id == $post->ID) echo 'current-festival';  ?> ">
-        <a href="<?php echo $festival_link; ?>"><?php echo $festival_title; ?></a>
-      </div>
-      <?php
-    }
-    ?>
-    </nav>
+    <?php get_festival_navigation($post); ?>
+    
     <h2 class="festival__year">
       <?php echo get_field('festival_year'); ?>
     </h2>

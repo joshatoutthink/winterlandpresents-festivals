@@ -17,6 +17,15 @@ function create_post_type_festival() {
     )
   );
   
+  if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_sub_page(array(
+        'page_title'     => 'Festival Options',
+        'menu_title'    => 'Festival Options',
+        'parent_slug'    => 'edit.php?post_type=festival',
+    ));
+
+}
 }
 create_post_type_festival();
 
