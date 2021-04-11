@@ -10,6 +10,20 @@
   --background: #171818;
   --marquee: #86d6b9;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  box-sizing: border-box;
+  *,
+  *:after,
+  *:before {
+    box-sizing: inherit;
+    position: relative;
+  }
+}
 /* 
 Layout 
 */

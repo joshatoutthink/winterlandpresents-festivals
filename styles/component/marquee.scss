@@ -1,0 +1,19 @@
+.marquee__wrapper {
+  background: var(--marquee);
+  padding: 0;
+  overflow: scroll;
+}
+.marquee {
+  display: flex;
+
+  gap: 30px;
+  > * {
+    height: 100px;
+  }
+  img {
+    height: 100%;
+    min-width: calc(100vh / 6);
+    max-width: auto;
+    vertical-align: unset;
+  }
+}

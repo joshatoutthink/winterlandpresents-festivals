@@ -3,12 +3,13 @@ if(!class_exists( 'Festival_Pages_Core' )){
   class Festival_Pages_Core{
 
     function __construct(){
-      add_action('wp_enqueue_scripts', array($this, 'enqueue_all'));
-
-      // INCLUDES
+      // Post type creation
       require FESTIVAL_PAGES_CORE_PATH . '/post-types/index.php';
 
-      //
+      // assets
+      add_action('wp_enqueue_scripts', array($this, 'enqueue_all'));
+
+      //TEMPLATE
       add_filter('single_template', [$this,'festival_template']);
     }
     public function enqueue_all(){
@@ -22,12 +23,10 @@ if(!class_exists( 'Festival_Pages_Core' )){
       if ( $post->post_type == 'festival' && function_exists('get_field') ) {
         return FESTIVAL_PAGES_CORE_PATH . 'templates/festival-template.php';
       }
-
-
       return $single;
     }
-    
-  }
+
+  }//END CLASS
   
   new Festival_Pages_Core();
 }

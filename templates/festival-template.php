@@ -3,7 +3,7 @@
 ?>
 
 <?php wp_head(); ?>
-
+<div class="festival__layout">
   <header class="festival__header">
     <div class="festival__logo">
       <img src="<?php echo get_field('festival_logo'); ?>" alt="festival logo">
@@ -34,7 +34,7 @@
   </header>
 
 
-  <div class="marquee__wrapper">
+  <div class="marquee__wrapper full-bleed">
     <div class="marquee">
       <?php
       $marquee_images = get_field('marquee_images'); 
@@ -47,50 +47,72 @@
       }
       ?>
     </div>
-    
-
-    <div class="carousel__wrapper">
-      <div class="carousel__navigation--previous">
-        <button data-action="previous-slide"> < </button>
-      </div>
-      <div class="carousel__navigation--next">
-        <button data-action="next-slide"> > </button>
-      </div>
-      <ul class="carousel__slides">
-      <?php
-        $carousel_images = get_field('carousel_images'); 
-        foreach($carousel_images as $slide){
-          ?>
-          <div class="marquee__image">
-            <img src="<?php echo $slide['image']; ?>" alt="slide image">
-          </div>
-          <?php
-        }
-      ?>  
-      </ul>
-    </div>
-    <?php if($festival_notes = get_field('festival_notes')): ?>
-      <div class="festival__notes">
-        <?php echo $festival_notes; ?>
-      </div>
-    <?php endif; ?>
   </div>
 
+  <?php 
+    $carousel_aspect_ratio='unset';
+    $carousel_image_style="contain";
+    $settings = [
+      'carousel-aspect-ratio' => $carousel_aspect_ratio,
+      'carousel-image-style'=> $carousel_image_style,
+    ];
+    $carousel_slide_custom_properties = "";
+    foreach($settings as $key=>$setting){
+      $carousel_slide_custom_properties .= " --".$key.": ".$setting.";";
+    }
+
+  ?>
+  <div class="carousel__wrapper" style="<?php echo $carousel_slide_custom_properties;?>">
+    <div class="carousel__navigation--previous">
+      <button data-action="previous-slide"> < </button>
+    </div>
+    <div class="carousel__navigation--next">
+      <button data-action="next-slide"> > </button>
+    </div>
+    <ul class="carousel__slides">
+    <?php
+      $carousel_images = get_field('carousel_images'); 
+      $slide_count=0;
+      foreach($carousel_images as $slide){
+        ?>
+        <li class="carousel__slide" data-slide-id="<?php echo $slide_count;?>" data-state="<?php echo $slide_count==0?'active':'idle';?>">
+          <img src="<?php echo $slide['image']; ?>" alt="slide image">
+        </li>
+        <?php
+        $slide_count++;
+      }
+    ?>  
+    </ul>
+
+    <?php if($festival_notes = get_field('festival_notes')): ?>
+        <div class="festival__notes">
+          <?php echo $festival_notes; ?>
+        </div>
+      <?php endif; ?>
+  </div>
+  
+    
 
   <div class="festival__info-wrapper">   
     <div class="festival__info--host festival__info">
-      <h3>Hosted by:</h3>
-      <?php echo get_field('festival_host'); ?>
+      <h3 class="info__label">Hosted by:</h3>
+      <div class="info__copy">
+        <?php echo get_field('festival_host'); ?>
+      </div>
     </div>
     <div class="festival__info festival__info--identity">
-      <h3>Visual Identity by:</h3>
-      <?php echo get_field('festival_identity'); ?>
+      <h3 class="info__label">Visual Identity by:</h3>
+      <div class="info__copy">
+        <?php echo get_field('festival_identity'); ?>
+      </div>
     </div>    
     <div class="festival__info festival__info--photography">
-      <h3>Visual Identity by:</h3>
-      <?php echo get_field('festival_identity'); ?>
+      <h3 class="info__label">Visual Identity by:</h3>
+      <div class="info__copy">
+        <?php echo get_field('festival_identity'); ?>
+      </div>
     </div>    
   </div>
-
+</div>
 
 <?php wp_footer(); ?>

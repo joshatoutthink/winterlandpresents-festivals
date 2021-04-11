@@ -1,0 +1,22 @@
+.festival__info-wrapper {
+  @media (min-width: 763px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .festival__info {
+    width: 100%;
+  }
+}
+.festival__info {
+  font-family: var(--text);
+  .info__label {
+    color: #c0c0c0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .info__copy {
+    font-size: 18px;
+    color: white;
+  }
+}
