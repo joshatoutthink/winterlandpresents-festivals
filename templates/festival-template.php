@@ -34,7 +34,7 @@
 
   <?php 
     $carousel_aspect_ratio= get_field('carousel_image_aspect_ratio');
-    do_action('qm/debug', $carousel_aspect_ratio);
+
     $carousel_image_style= get_field("carousel_image_fit");
     $settings = [
       'carousel-aspect-ratio' => $carousel_aspect_ratio,
