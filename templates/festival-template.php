@@ -35,7 +35,7 @@
 
 
   <div class="marquee__wrapper full-bleed">
-    <div class="marquee">
+    <div class="__marquee">
       <?php
       $marquee_images = get_field('marquee_images'); 
       foreach($marquee_images as $marquee_item){
@@ -74,8 +74,17 @@
       $carousel_images = get_field('carousel_images'); 
       $slide_count=0;
       foreach($carousel_images as $slide){
+        $slide_state = "idle";
+
+        if($slide_count == (count($carousel_images) - 1)){
+          $slide_state = "previous";
+        } elseif($slide_count == 1){
+          $slide_state = "next";
+        } elseif($slide_count == 0){
+          $slide_state = "active";
+        }
         ?>
-        <li class="carousel__slide" data-slide-id="<?php echo $slide_count;?>" data-state="<?php echo $slide_count==0?'active':'idle';?>">
+        <li class="carousel__slide" data-slide-id="<?php echo $slide_count;?>" data-state="<? echo $slide_state;?>">
           <img src="<?php echo $slide['image']; ?>" alt="slide image">
         </li>
         <?php

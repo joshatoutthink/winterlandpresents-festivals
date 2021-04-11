@@ -30,18 +30,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .carousel__slide {
   display: flex;
   background: var(--background);
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
   img {
     object-fit: var(--carousel-image-style, contain);
     height: 100%;
     width: 100%;
+    min-width: 100%;
   }
 }
+
 [class^="carousel__navigation"] {
   position: relative;
   width: var(--button-size);
@@ -80,4 +85,37 @@
       color: white;
     }
   }
+}
+
+// == SLIDER FUNCTIONALITY
+
+.carousel__slide[data-state="idle"],
+.carousel__slide[data-state="next"],
+.carousel__slide[data-state="previous"] {
+  position: absolute;
+
+  transform: translateX(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: none;
+}
+.carousel__slide[data-state="previous"] {
+  transform: translateX(100%);
+}
+.carousel__slide[data-state="next"],
+.carousel__slide[data-state="previous"] {
+  transition: opacity 0s linear 0.3s,
+    transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), position 0s linear 0.3s,
+    visibility 0s linear 0.3s;
+}
+.carousel__slide[data-state="active"] {
+  transition: opacity 0.1s linear 0s,
+    transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  z-index: 2;
+  position: relative;
+}
+.carousel__slide {
+  transform: none;
+  position: absolute;
+  pointer-events: none;
 }

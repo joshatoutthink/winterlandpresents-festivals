@@ -1,11 +1,12 @@
 .marquee__wrapper {
   background: var(--marquee);
   padding: 0;
-  overflow: scroll;
+  position: relative;
+  width: 100%;
+  overflow-x: scroll;
 }
-.marquee {
+.__marquee {
   display: flex;
-
   gap: 30px;
   > * {
     height: 100px;
