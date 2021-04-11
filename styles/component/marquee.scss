@@ -4,18 +4,24 @@
   position: relative;
   width: 100%;
   overflow-x: hidden;
+  height: 150px;
   margin-bottom: 30px;
 }
 .__marquee {
   display: flex;
   gap: 30px;
+  height: 100%;
+  align-items: center;
   > * {
     height: 100px;
   }
   img {
     height: 100%;
-    min-width: calc(100vh / 6);
+    min-width: calc(100vh / 4);
+    @media (min-width: 763px) {
+      min-width: calc(100vh / 6);
+    }
     max-width: auto;
-    vertical-align: unset;
+    // vertical-align: unset;
   }
 }

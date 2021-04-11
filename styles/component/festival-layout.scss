@@ -4,6 +4,7 @@
   background: var(--background);
   color: var(--white);
   display: grid;
+  overflow-x: hidden;
   grid-template-columns: minmax(0px, 1fr) min(100%, 1100px) minmax(0px, 1fr);
   & > * {
     grid-column: 2/3;
