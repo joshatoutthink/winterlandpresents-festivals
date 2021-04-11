@@ -34,7 +34,7 @@
   </header>
 
 
-  <div class="marquee__wrapper full-bleed">
+  <marquee class="marquee__wrapper full-bleed">
     <div class="__marquee">
       <?php
       $marquee_images = get_field('marquee_images'); 
@@ -47,11 +47,12 @@
       }
       ?>
     </div>
-  </div>
+  </marquee>
 
   <?php 
-    $carousel_aspect_ratio='unset';
-    $carousel_image_style="contain";
+    $carousel_aspect_ratio= get_field('carousel_image_aspect_ratio');
+    do_action('qm/debug', $carousel_aspect_ratio);
+    $carousel_image_style= get_field("carousel_image_fit");
     $settings = [
       'carousel-aspect-ratio' => $carousel_aspect_ratio,
       'carousel-image-style'=> $carousel_image_style,

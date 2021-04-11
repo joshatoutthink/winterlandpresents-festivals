@@ -37,8 +37,9 @@
   background: var(--background);
   justify-content: center;
   align-items: center;
-  height: 100%;
   width: 100%;
+  aspect-ratio: var(--carousel-aspect-ratio);
+
   img {
     object-fit: var(--carousel-image-style, contain);
     height: 100%;
