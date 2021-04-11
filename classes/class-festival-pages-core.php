@@ -14,6 +14,9 @@ if(!class_exists( 'Festival_Pages_Core' )){
       //TEMPLATE
       add_filter('single_template', [$this,'festival_template']);
       add_filter('archive_template', [$this,'festival_archive_template']);
+
+      //ACF GROUPS REGISTER
+      
     }
     public function enqueue_all(){
       wp_enqueue_script('main-script', FESTIVAL_PAGES_CORE_URL . '/dist/main.js', array(), true);
@@ -37,6 +40,7 @@ if(!class_exists( 'Festival_Pages_Core' )){
       }
       return $archive;
     }
+
 
   }//END CLASS
   
