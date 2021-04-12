@@ -12,16 +12,7 @@
   gap: 30px;
   height: 100%;
   align-items: center;
-  > * {
-    height: 100px;
-  }
   img {
     height: 100%;
-    min-width: calc(100vh / 4);
-    @media (min-width: 763px) {
-      min-width: calc(100vh / 6);
-    }
-    max-width: auto;
-    // vertical-align: unset;
   }
 }
