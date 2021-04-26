@@ -29,7 +29,9 @@
   grid-area: notes;
 }
 .carousel__slides {
+  position: relative;
   grid-area: image;
+  overflow-x: hidden;
   display: grid;
   grid-template: 1fr/1fr;
   > * {
