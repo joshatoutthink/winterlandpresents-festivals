@@ -17,10 +17,10 @@
 
   <div class="carousel__wrapper">
     <div class="carousel__navigation--previous">
-      <button data-action="previous-slide"> < </button>
+      <button data-action="previous-slide"> &larr; </button>
     </div>
     <div class="carousel__navigation--next">
-      <button data-action="next-slide"> > </button>
+      <button data-action="next-slide"> &rarr; </button>
     </div>
     <ul class="carousel__slides">
     <?php
@@ -48,7 +48,7 @@
     ?>  
     </ul>
     <div class="carousel__count">
-       <span class="current">1</span> / <span class="total"><?php echo $image_count;?></span>
+       <span class="current">1</span> of <span class="total"><?php echo $image_count;?></span>
      </div> 
     <?php if($festival_notes = get_field('festival_notes')): ?>
         <div class="festival__notes">
