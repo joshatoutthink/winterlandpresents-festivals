@@ -19,8 +19,10 @@ if(!class_exists( 'Festival_Pages_Core' )){
       
     }
     public function enqueue_all(){
-      wp_enqueue_script('main-script', FESTIVAL_PAGES_CORE_URL . '/dist/main.js', array(), true);
-      wp_enqueue_style('main-styles', FESTIVAL_PAGES_CORE_URL . '/dist/main.css', '1.00' , 'all');
+      global $post;
+      if(get_post_type() !== 'festival') return;
+      wp_enqueue_script('festival-main-script', FESTIVAL_PAGES_CORE_URL . '/dist/main.js', array(), true);
+      wp_enqueue_style('festival-main-styles', FESTIVAL_PAGES_CORE_URL . '/dist/main.css', '1.00' , 'all');
     }
 
     public function festival_template($single){
