@@ -12,7 +12,11 @@
   gap: 30px;
   height: 100%;
   align-items: center;
+  .marquee_image {
+    flex-shrink: 0;
+  }
   img {
     height: 100%;
+    width: auto;
   }
 }
