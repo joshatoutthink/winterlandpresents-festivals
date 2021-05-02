@@ -16,6 +16,7 @@ define('FESTIVAL_PAGES_CORE_URL', plugin_dir_url(__FILE__));
  });
 function add_acf_field_groups(){
       include FESTIVAL_PAGES_CORE_PATH . 'acf/festival-options.php';
+      include FESTIVAL_PAGES_CORE_PATH . 'acf/festival-archive-carousel.php';
       include FESTIVAL_PAGES_CORE_PATH . 'acf/festival.php';
       
 }
