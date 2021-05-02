@@ -67,3 +67,15 @@
     }
   }
 }
+
+.back-to-site {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  display: block;
+  &:hover {
+    color: white;
+    text-decoration: underline;
+  }
+}

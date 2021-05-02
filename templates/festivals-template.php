@@ -5,6 +5,7 @@
 
 <?php wp_head(); ?>
 <div class="festival__layout">
+<?php back_to_main_site(); ?>
   <header class="festival__header festival__header--archive">
     <div class="festival__logo">
       <?php get_festival_logo(); ?>

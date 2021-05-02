@@ -26,21 +26,7 @@ function get_festival_navigation($post){
 }
 
 function get_festival_image_collection(){
-  $festivals = get_posts([
-      'post_type' => 'festival',
-      'posts_per_page' => 10,
-    ]);
-  
-  $image_collection = [];
-  foreach($festivals as $festival){
-    $carousel_images = get_field('carousel_images', $festival->ID);
-    if(is_array($carousel_images)){
-      $image_collection = array_merge($image_collection, $carousel_images);
-    }
-    unset($carousel_images);
-  }
-  shuffle($image_collection);
-  return $image_collection;
+  return get_field('festival_archive_carousel', 'option');
 }
 
 function get_festival_logo(){
@@ -52,3 +38,7 @@ function get_festival_logo(){
   </a>
   <?php
 }
+
+function back_to_main_site(){ ?>
+  <a href="<?php echo site_url(); ?>" class="back-to-site full-bleed" title="Go Back to Winterland Presents">&larr; Back to Main Site</a>
+<?php }

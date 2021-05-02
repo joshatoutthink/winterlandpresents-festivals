@@ -5,6 +5,7 @@
 
 <?php wp_head(); ?>
 <div class="festival__layout">
+<?php back_to_main_site(); ?>
   <header class="festival__header">
     <div class="festival__logo">
       <?php get_festival_logo(); ?> 
@@ -104,9 +105,9 @@
       </div>
     </div>    
     <div class="festival__info festival__info--photography">
-      <h3 class="info__label">Visual Identity by:</h3>
+      <h3 class="info__label">Photography by:</h3>
       <div class="info__copy">
-        <?php echo get_field('festival_identity'); ?>
+        <?php echo get_field('festival_photographer'); ?>
       </div>
     </div>    
   </div>
