@@ -26,7 +26,7 @@ function get_festival_navigation($post){
 }
 
 function get_festival_image_collection(){
-  return get_field('festival_archive_carousel', 'option');
+  return get_field('carousel_images', 'option');
 }
 
 function get_festival_logo(){

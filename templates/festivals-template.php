@@ -16,7 +16,21 @@
   </header>
 
 
-  <div class="carousel__wrapper">
+   <?php 
+    $carousel_aspect_ratio= get_field('carousel_image_aspect_ratio', 'option');
+
+    $carousel_image_style= get_field("carousel_image_fit", 'option');
+    $settings = [
+      'carousel-aspect-ratio' => $carousel_aspect_ratio,
+      'carousel-image-style'=> $carousel_image_style,
+    ];
+    $carousel_slide_custom_properties = "";
+    foreach($settings as $key=>$setting){
+      $carousel_slide_custom_properties .= " --".$key.": ".$setting.";";
+    }
+
+  ?>
+  <div class="carousel__wrapper" style="<?php echo $carousel_slide_custom_properties;?>">
     <div class="carousel__navigation--previous">
       <button data-action="previous-slide"> &larr; </button>
     </div>
@@ -25,10 +39,11 @@
     </div>
     <ul class="carousel__slides">
     <?php
-      $carousel_images =  get_festival_image_collection(); 
-      $slide_count=0;
-
-      $image_count = is_array($carousel_images) ? count($carousel_images) : 0;
+      $carousel_images = get_festival_image_collection(); 
+      do_action('qm/debug',  $carousel_images);
+      $slide_count = 0;
+      $image_count = $image_count = is_array($carousel_images) ? count($carousel_images) : 0;
+      
       foreach($carousel_images as $slide){
         $slide_state = "idle";
 
@@ -48,14 +63,9 @@
       }
     ?>  
     </ul>
-    <div class="carousel__count">
+     <div class="carousel__count">
        <span class="current">1</span> of <span class="total"><?php echo $image_count;?></span>
      </div> 
-    <?php if($festival_notes = get_field('festival_notes')): ?>
-        <div class="festival__notes">
-          <?php echo $festival_notes; ?>
-        </div>
-      <?php endif; ?>
   </div>
 </div>
-<?php wp_footer(); ?>
+<?php get_footer(); ?>
