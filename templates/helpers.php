@@ -15,7 +15,7 @@ function get_festival_navigation($post){
       $festival_title = $festival->post_title;
       $is_current_festival = $post ? $id == $post->ID : false;
       ?>
-      <div class="link <?php if($is_current_festival) echo "current-pages"; ?> ">
+      <div class="link <?php if($is_current_festival) echo "current-festival"; ?> ">
         <a href="<?php echo $festival_link; ?>"><?php echo $festival_title; ?></a>
       </div>
       <?php
